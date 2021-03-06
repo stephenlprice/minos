@@ -13,8 +13,8 @@ const DATA_CACHE_NAME = 'data-cache-v1';
 
 // install the service worker
 self.addEventListener("install", (event) => {
-  // pre caching data
+  // pre caching transaction data
   event.waitUntil(
-    // caches.open(DATA_CACHE_NAME).then((cache) => cache.add())
+    caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/transaction"))
   );
 });
