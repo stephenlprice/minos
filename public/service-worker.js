@@ -46,6 +46,7 @@ self.addEventListener("activate", event => {
         return Promise.all(
           // remove each cache name included in previous array
           cachesToDelete.map(cacheToDelete => {
+            console.log("removing old cache:", cacheToDelete);
             return caches.delete(cacheToDelete);
           })
         );
@@ -54,3 +55,67 @@ self.addEventListener("activate", event => {
   );
 });
 
+// caching network requests
+self.addEventListener("fetch", event => {
+  // Does not cache requests to other origins
+  if (
+    !event.request.url.startsWith(self.location.origin)
+  ) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // any requests to api URLs
+  if (event.request.url.includes('/api/')) {
+    // make network request and fallback to cache if network request fails (is offline)
+    event.respondWith(
+      caches
+        .open(DATA_CACHE)
+        .then(cache => {
+          return fetch(event.request)
+            .then(response => {
+              // if the response succeeds, cache a clone
+              cache.put(event.request, response.clone());
+              return response;
+            })
+            .catch(err => {
+              // If the network request failed, retrieve from the cache
+              console.log('network unavailable, using cache until connectivity is restored...');
+              return cache.match(event.request);
+            });
+        })
+        .catch(err => console.error(err))
+    );
+    return;
+  }
+
+  // prioritize the cache for all other requests for performance
+  event.respondWith(
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }  
+
+      // if request is not cached, make a network request and cache the response
+      return caches.open(DATA_CACHE).then(cache => {
+        return fetch(event.request).then(response => {
+          return cache.put(event.request, response.clone())
+            .then(() => {
+              return response;
+            });
+        });
+      });
+    })
+  );
+
+  // for static content respond with cached results if available or make a request
+  // event.respondWith(
+  //   caches
+  //     .open(STATIC_CACHE)
+  //     .then(cache => {
+  //       return cache.match(event.request).then(response => {
+  //         return response || fetch(event.request);
+  //       });
+  //     })
+  // );
+});
