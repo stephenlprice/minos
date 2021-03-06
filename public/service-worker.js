@@ -18,7 +18,6 @@ self.addEventListener("install", (event) => {
     caches
       .open(DATA_CACHE)
       .then((cache) => cache.add("/api/transaction"))
-      .then(() => self.skipWaiting())
   );
 
   // pre caching all static assets
@@ -26,8 +25,11 @@ self.addEventListener("install", (event) => {
     caches
       .open(STATIC_CACHE)
       .then((cache) => cache.addAll(FILES_TO_CACHE))
-      .then(() => self.skipWaiting())
   );
+
+  // activate the service worker immediately once it
+  // has finished installing
+  self.skipWaiting();
 });
 
 // removes old caches not listed on this file
@@ -57,8 +59,9 @@ self.addEventListener("activate", event => {
 
 // caching network requests
 self.addEventListener("fetch", event => {
-  // Does not cache requests to other origins
+  // Does not cache requests to other origins and cache API does not support non-GET requests
   if (
+    event.request.method !== "GET" ||
     !event.request.url.startsWith(self.location.origin)
   ) {
     event.respondWith(fetch(event.request));
@@ -107,15 +110,4 @@ self.addEventListener("fetch", event => {
       });
     })
   );
-
-  // for static content respond with cached results if available or make a request
-  // event.respondWith(
-  //   caches
-  //     .open(STATIC_CACHE)
-  //     .then(cache => {
-  //       return cache.match(event.request).then(response => {
-  //         return response || fetch(event.request);
-  //       });
-  //     })
-  // );
 });
