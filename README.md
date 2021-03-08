@@ -48,12 +48,6 @@
   <hr>
   <br>
 
-  ## Testing
-  Testing is more than welcome. Here are a few instructions on how to perform tests:<br>
-  noe
-  <hr>
-  <br>
-
   ## License
   This project is licensed under the Apache 2.0 license.
   For more information refer to this link: [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
