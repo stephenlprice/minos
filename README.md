@@ -13,17 +13,10 @@
   <br>
 
   ## Table of Contents
-  1. [Installation](#Installation)
-  2. [Usage](#Usage)
-  3. [Contributing](#Contributing)
-  4. [License](#License)
-  5. [Questions](#Questions)
-  <hr>
-  <br>
-
-  ## Installation
-  To install this project, please do the following:<br>
-  The application is deployed at [here](here.com).
+  1. [Usage](#Usage)
+  2. [Contributing](#Contributing)
+  3. [License](#License)
+  4. [Questions](#Questions)
   <hr>
   <br>
 
