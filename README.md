@@ -5,9 +5,10 @@
 
   ## Overview
   MiNOS is a budget tracking application that allows for offline access and functionality. Users are able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they are accesible to users and then stored on the cloud when back online. Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to your financial success.
- 
-  <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/c820b1ce02284710aeb4c5a7413d8f79" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+  ![MiNOS](./public/icons/MiNOS.png)
+
+  ### Watch the preview video [here](https://www.loom.com/embed/c820b1ce02284710aeb4c5a7413d8f79) ... or try the app [here!](https://minos-budget.herokuapp.com/)
   <hr>
   <br>
 
