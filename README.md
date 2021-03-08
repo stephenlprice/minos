@@ -8,7 +8,9 @@
 
   ![MiNOS](./public/icons/MiNOS.png)
 
-  ### Watch the preview video [here](https://www.loom.com/embed/c820b1ce02284710aeb4c5a7413d8f79) ... or try the app [here!](https://minos-budget.herokuapp.com/)
+  ### Watch the preview video [here](https://www.loom.com/share/3f49b156c6e24650b11a371d9299c41d) ... or try the app [here!](https://minos-budget.herokuapp.com/)
+
+  <a href="https://www.loom.com/share/3f49b156c6e24650b11a371d9299c41d"> <p>MiNOS Budget Tracker - Watch Video</p> <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/3f49b156c6e24650b11a371d9299c41d-with-play.gif"> </a>
   <hr>
   <br>
 
