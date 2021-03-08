@@ -12,9 +12,8 @@
   1. [Installation](#Installation)
   2. [Usage](#Usage)
   3. [Contributing](#Contributing)
-  4. [Code of Conduct](#Code-of-Conduct)
-  5. [License](#License)
-  6. [Questions](#Questions)
+  4. [License](#License)
+  5. [Questions](#Questions)
   <hr>
   <br>
 
@@ -42,12 +41,6 @@
   ### Guidelines
   To contribute to this project, please abide by the following:<br>
   Communication: please contact the code owner if you are interested in contributing.
-  <hr>
-  <br>
-
-  ## Code of Conduct
-  All contributers must agree and follow the Code of Conduct:<br>
-  Abide by Github's CC.
   <hr>
   <br>
 
