@@ -3,6 +3,7 @@ const FILES_TO_CACHE =  [
   "/index.html",
   // "/manifest.webmanifest", // decide if I will create one later
   "/index.js",
+  "/db.js",
   "/styles.css",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png"
@@ -64,8 +65,7 @@ self.addEventListener("fetch", event => {
     event.request.method !== "GET" ||
     !event.request.url.startsWith(self.location.origin)
   ) {
-    event.respondWith(fetch(event.request));
-    return;
+    return event.respondWith(fetch(event.request));
   }
 
   // any requests to api URLs
